@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { UserService } from '../services/service';
 
 @Component({
   selector: 'app-user-management',
-  templateUrl: './user-management.component.html',
-  styleUrl: './user-management.component.css'
+  templateUrl: './managementSite.html',
+  styleUrls: ['./managementStyles.css']
 })
 export class UserManagementComponent implements OnInit {
   users: { username: string; password: string }[] = [];

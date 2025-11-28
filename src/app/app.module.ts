@@ -6,9 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from '../Reg/regComponent';
-import { UserListComponent } from './user/user-list.component';
-import { UserManagementComponent } from './management/user-management.component';
-import { UserService } from './services/user.service';
+import { UserListComponent } from './user/userComponent';
+import { UserManagementComponent } from './management/managementComponent';
+import { UserService } from './services/service';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { UserManagementComponent } from './user-management.component';
+import { UserManagementComponent } from './managementComponent';
 
 describe('UserManagementComponent', () => {
   let component: UserManagementComponent;

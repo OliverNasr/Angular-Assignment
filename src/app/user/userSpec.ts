@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { UserListComponent } from './user-list.component';
+import { UserListComponent } from './userComponent';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;

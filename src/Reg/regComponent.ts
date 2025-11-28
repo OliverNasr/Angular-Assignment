@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../app/services/user.service';
+import { UserService } from '../app/services/service';
 
 @Component({
   selector: 'app-register',
@@ -30,11 +30,6 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    // Allow weak passwords but show warning
-    if (this.password.length < 6) {
-      this.successMessage = 'Note: Your password is weak (less than 6 characters).';
-    }
-
     this.errorMessage = '';
     this.isLoading = true;
 
@@ -44,7 +39,7 @@ export class RegisterComponent implements OnInit {
         password: this.password 
       };
 
-      // Use service to add user (handles duplicate checking)
+      
       if (this.userService.addUser(user)) {
         if (!this.successMessage) {
           this.successMessage = 'Registration successful!';
