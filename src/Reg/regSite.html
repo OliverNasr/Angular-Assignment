@@ -1,0 +1,50 @@
+<div class="register-container">
+    <div class="register-card">
+      <h2>Sign Up</h2>
+  
+      <form (ngSubmit)="onSignUp()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            [(ngModel)]="username"
+            placeholder="Enter your username"
+            [disabled]="isLoading"
+            required
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="Enter your password"
+            [disabled]="isLoading"
+            required
+          />
+        </div>
+  
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+  
+        <div *ngIf="successMessage" class="success-message">
+          {{ successMessage }}
+        </div>
+  
+        <button
+          type="submit"
+          class="submit-btn"
+          [disabled]="isLoading"
+        >
+          {{ isLoading ? 'Signing Up...' : 'Sign Up' }}
+        </button>
+      </form>
+    </div>
+  </div>
+  
