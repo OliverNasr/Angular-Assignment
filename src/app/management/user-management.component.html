@@ -1,0 +1,51 @@
+<div class="user-management-container">
+  <h1>User Management</h1>
+  
+  <div *ngIf="users.length === 0" class="no-users">
+    <p>No registered users yet.</p>
+  </div>
+
+  <div *ngIf="users.length > 0" class="management-section">
+    <h2>Registered Users ({{ users.length }})</h2>
+    
+    <div class="users-grid">
+      <div *ngFor="let user of users" 
+           [ngClass]="{ 'user-card': true, 'weak-password': isPasswordWeak(user.password) }">
+        
+        <div class="user-info">
+          <h3 class="username">{{ user.username }}</h3>
+          <div class="password-info">
+            <span class="password-label">Password Strength:</span>
+            <span *ngIf="isPasswordWeak(user.password)" class="weak">
+              Weak ({{ user.password.length }} chars) ⚠️
+            </span>
+            <span *ngIf="!isPasswordWeak(user.password)" class="strong">
+              Strong ({{ user.password.length }} chars) ✓
+            </span>
+          </div>
+        </div>
+
+        <button class="delete-btn" 
+                (click)="deleteUser(user.username)"
+                title="Delete this user">
+          Delete User
+        </button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-label">Total Users:</span>
+        <span class="stat-value">{{ users.length }}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Weak Passwords:</span>
+        <span class="stat-value">{{ getWeakPasswordCount() }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <a routerLink="/Reg" class="back-link">← Back to Registration</a>
+  </div>
+</div>

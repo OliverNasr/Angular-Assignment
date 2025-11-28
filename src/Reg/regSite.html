@@ -27,6 +27,9 @@
             [disabled]="isLoading"
             required
           />
+          <div *ngIf="password" class="password-strength" [ngClass]="password.length < 6 ? 'weak' : 'strong'">
+            {{ password.length < 6 ? '⚠️ Weak password (' + password.length + ' chars)' : '✓ Strong password (' + password.length + ' chars)' }}
+          </div>
         </div>
   
         <div *ngIf="errorMessage" class="error-message">
@@ -45,6 +48,10 @@
           {{ isLoading ? 'Signing Up...' : 'Sign Up' }}
         </button>
       </form>
+
+      <button class="manage-btn" (click)="goToManagement()" *ngIf="registeredUsers.length > 0">
+        Manage Users ({{ registeredUsers.length }})
+      </button>
     </div>
   </div>
   

@@ -1,0 +1,17 @@
+<div class="user-list-container">
+  <h2>Registered Users</h2>
+  <div *ngIf="users.length === 0" class="no-users">
+    No users registered yet.
+  </div>
+  <ul *ngIf="users.length > 0" class="user-list">
+    <li *ngFor="let user of users" 
+        [ngClass]="{ 'weak-password': isPasswordWeak(user.password) }"
+        (click)="deleteUser(user.username)"
+        class="user-item">
+      {{ user.username }}
+      <span class="password-warning" *ngIf="isPasswordWeak(user.password)">
+        (weak password)
+      </span>
+    </li>
+  </ul>
+</div>
